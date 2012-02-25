@@ -104,9 +104,6 @@ module Mongoid #:nodoc:
     #
     # @since 2.0.0.rc.6
     def update_attribute(name, value)
-      unless attribute_writable?(name.to_s)
-        raise Errors::ReadonlyAttribute.new(name, value)
-      end
       write_attribute(name, value)
       set(name, value)
     end
